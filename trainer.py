@@ -70,16 +70,6 @@ def no_grad_loop(data_loader, model, png_cnt, epoch=2, device="cuda", batch_size
 
             max, min = coords_original.max().item(), coords_original.min().item()
 
-            # for i in range(index_list.size):
-            #     angle = angle_list[index_list[i]] * (-1)
-            #     angle = angle.cpu().squeeze().detach().numpy()
-
-            #     rot_mat = np.array([[np.cos(2*np.pi-angle), -np.sin(2*np.pi-angle), 0],[np.sin(2*np.pi-angle), np.cos(2*np.pi-angle), 0],[0, 0, 1]])
-
-            #     FEM_disp[i] = FEM_disp[i] @ rot_mat
-            #     disp_pred[i] = disp_pred[i] @ rot_mat
-
-
             FEM_x = coords_original[:,0] + FEM_disp[:,0]
             FEM_y = coords_original[:,1] + FEM_disp[:,1]
             FEM_z = coords_original[:,2] + FEM_disp[:,2]
